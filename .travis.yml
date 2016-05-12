@@ -12,6 +12,14 @@ env:
   matrix:
     - PYTHON_VERSION: 2.7
 
+addons:
+ apt:
+   sources:
+   - ubuntu-toolchain-r-test
+   packages:
+   - gcc-4.8
+   - g++-4.8
+
 install:
 - wget https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py -O condaci.py
 - python condaci.py setup
@@ -19,6 +27,7 @@ install:
 - ~/miniconda/bin/conda config --add channels http://conda.binstar.org/numba
 
 script:
+- export CXX="g++-4.8" CC="gcc-4.8"
 - ~/miniconda/bin/python condaci.py build ./conda
 
 notifications:
