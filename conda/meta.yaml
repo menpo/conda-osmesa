@@ -1,0 +1,24 @@
+{% set version = "12.2.2.dev" %}
+
+package:
+  name: osmesa
+  version: {{ version }}
+
+source:
+  fn: mesa-{{ version }}.zip
+  url: https://github.com/menpo/mesa/archive/expose_attrib.zip
+
+requirements:
+  build:
+    - python
+    - mako
+    - llvmdev
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
+    - test -f $PREFIX/lib/libOSMesa.so     # [linux]
+
+about:
+  home: http://www.mesa3d.org/
+  license: MIT + Others
