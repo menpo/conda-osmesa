@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# LLVMdev contains std::move calls which are not supported by the 10.6/10.7
-# libc++. So use 10.9
-export MACOSX_DEPLOYMENT_TARGET=10.9
+if [ "$(uname -s)" == "Darwin" ]; then
+	# LLVMdev contains std::move calls which are not supported by the 10.6/10.7
+	# libc++. So use 10.9
+	export MACOSX_DEPLOYMENT_TARGET=10.9
+fi
 
 autoreconf -fi
 
