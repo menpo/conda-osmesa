@@ -1,11 +1,9 @@
-{% set version = "12.2.2.dev" %}
-
 package:
   name: osmesa
-  version: {{ version }}
+  version: "12.2.2.dev"
 
 source:
-  fn: mesa-{{ version }}.zip
+  fn: mesa-12.2.2.dev.zip
   url: https://github.com/menpo/mesa/archive/expose_attrib.zip
 
 requirements:
