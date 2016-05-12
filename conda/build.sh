@@ -27,5 +27,5 @@ autoreconf -fi
 	--prefix=$PREFIX                                    \
 	--disable-llvm-shared-libs
 
-make -j$CPU_COUNT
+make -j2
 make install

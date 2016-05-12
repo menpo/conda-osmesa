@@ -1,4 +1,5 @@
-sudo: false
+# Required to set GCC-4.8 as default compiler
+sudo: true
 
 os:
 - linux
@@ -25,9 +26,10 @@ install:
 - python condaci.py setup
 # Required for llvmdev (static)
 - ~/miniconda/bin/conda config --add channels http://conda.binstar.org/numba
+- sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 100
+- sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 100
 
 script:
-- export CXX="g++-4.8" CC="gcc-4.8"
 - ~/miniconda/bin/python condaci.py build ./conda
 
 notifications:
