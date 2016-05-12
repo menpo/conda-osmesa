@@ -16,7 +16,7 @@ install:
 - wget https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py -O condaci.py
 - python condaci.py setup
 # Required for llvmdev (static)
-- conda config --add channels http://conda.binstar.org/numba
+- ~/miniconda/bin/conda config --add channels http://conda.binstar.org/numba
 
 script:
 - ~/miniconda/bin/python condaci.py build ./conda
